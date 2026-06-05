@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: sii
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+  datasource:
+    url: jdbc:h2:mem:sii
+    driver-class-name: org.h2.Driver
+    username: h2
+    password: h2
+
+server:
+  servlet:
+    context-path: /api
+  port: 8080
+
+

@@ -30,7 +30,7 @@ public class Member {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private MemberStatus status;
+    private MemberStatus status = MemberStatus.ACTIVE;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "membership_plan_id", nullable = false)
@@ -41,8 +41,13 @@ public class Member {
         if (this.startDate == null) {
             this.startDate = LocalDate.now();
         }
-        if (this.status == null) {
-            this.status = MemberStatus.ACTIVE;
+    }
+
+    public void changeMemberStatus(MemberStatus status) {
+        if (status == null) {
+            return;
         }
+
+        this.status = status;
     }
 }

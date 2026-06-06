@@ -31,13 +31,13 @@ public class GymServiceImpl implements GymService {
 
     @Override
     public GymResponse getById(UUID id) {
-        Gym gym = getGym(id);
+        Gym gym = getGymEntity(id);
         return gymMapper.toResponse(gym);
     }
 
     @Override
     @Transactional
-    public GymResponse create(GymRequest request) {
+    public GymResponse save(GymRequest request) {
         Gym gym = gymMapper.toEntity(request);
         Gym savedGym = gymRepository.save(gym);
         return gymMapper.toResponse(savedGym);
@@ -46,19 +46,20 @@ public class GymServiceImpl implements GymService {
     @Override
     @Transactional
     public void delete(UUID id) {
-        Gym gym = getGym(id);
+        Gym gym = getGymEntity(id);
         gymRepository.delete(gym);
     }
 
     @Override
     @Transactional
     public GymResponse update(GymRequest request, UUID id) {
-        Gym gym = getGym(id);
+        Gym gym = getGymEntity(id);
         gymMapper.updateEntity(gym, request);
         return gymMapper.toResponse(gym);
     }
 
-    private Gym getGym(UUID id) {
+    @Override
+    public Gym getGymEntity(UUID id) {
         return gymRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Gym not found"));
     }

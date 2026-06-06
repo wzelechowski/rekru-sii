@@ -1,5 +1,6 @@
 package rekru.sii.gym.service;
 
+import rekru.sii.gym.model.Gym;
 import rekru.sii.gym.payload.request.GymRequest;
 import rekru.sii.gym.payload.response.GymResponse;
 
@@ -11,9 +12,11 @@ public interface GymService {
 
     GymResponse getById(UUID id);
 
-    GymResponse create(GymRequest request);
+    GymResponse save(GymRequest request);
 
     void delete(UUID id);
 
     GymResponse update(GymRequest request, UUID id);
+
+    Gym getGymEntity(UUID id);
 }

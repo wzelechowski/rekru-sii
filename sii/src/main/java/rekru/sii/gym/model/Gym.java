@@ -37,9 +37,4 @@ public class Gym {
         membershipPlans.add(plan);
         plan.setGym(this);
     }
-
-    public void removeMembershipPlan(MembershipPlan plan) {
-        membershipPlans.remove(plan);
-        plan.setGym(null);
-    }
 }

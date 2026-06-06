@@ -30,7 +30,7 @@ public class GymController {
 
     @PostMapping
     public ResponseEntity<GymResponse> create(@Valid @RequestBody GymRequest request) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(gymService.create(request));
+        return ResponseEntity.status(HttpStatus.CREATED).body(gymService.save(request));
     }
 
     @DeleteMapping("/{id}")

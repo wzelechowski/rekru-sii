@@ -53,9 +53,4 @@ public class MembershipPlan {
         members.add(member);
         member.setMembershipPlan(this);
     }
-
-    public void removeMember(Member member) {
-        members.remove(member);
-        member.setMembershipPlan(null);
-    }
 }

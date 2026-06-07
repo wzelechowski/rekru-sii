@@ -22,6 +22,11 @@ public class MembershipPlanController {
         return ResponseEntity.ok(membershipPlanService.getAll());
     }
 
+    @GetMapping("/gyms/{gymId}/membershipPlans")
+    public ResponseEntity<List<MembershipPlanResponse>> getByGymId(@PathVariable UUID gymId) {
+        return ResponseEntity.ok(membershipPlanService.getByGymId(gymId));
+    }
+
     @GetMapping("/membershipPlans/{id}")
     public ResponseEntity<MembershipPlanResponse> getById(@PathVariable UUID id) {
         return ResponseEntity.ok(membershipPlanService.getById(id));

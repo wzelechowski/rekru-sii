@@ -33,6 +33,14 @@ public class MembershipPlanServiceImpl implements MembershipPlanService {
     }
 
     @Override
+    public List<MembershipPlanResponse> getByGymId(UUID gymId) {
+        return membershipPlanRepository.findAllByGymId(gymId)
+                .stream()
+                .map(membershipPlanMapper::toResponse)
+                .toList();
+    }
+
+    @Override
     public MembershipPlanResponse getById(UUID id) {
         MembershipPlan membershipPlan = getMembershipPlanEntity(id);
         return membershipPlanMapper.toResponse(membershipPlan);

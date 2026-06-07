@@ -10,6 +10,8 @@ import java.util.UUID;
 public interface MembershipPlanService {
     List<MembershipPlanResponse> getAll();
 
+    List<MembershipPlanResponse> getByGymId(UUID gymId);
+
     MembershipPlanResponse getById(UUID id);
 
     MembershipPlanResponse save(UUID gymId, MembershipPlanRequest request);

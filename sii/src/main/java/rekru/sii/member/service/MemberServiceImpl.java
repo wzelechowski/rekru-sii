@@ -46,13 +46,13 @@ public class MemberServiceImpl implements MemberService {
                 membershipPlanId, MemberStatus.ACTIVE
         );
 
-        MembershipPlan membershipPlan = membershipPlanService.getMembershipPlanEntity(membershipPlanId);
+        MembershipPlan membershipPlan = membershipPlanService.getMembershipPlanEntityWithGymInfo(membershipPlanId);
         if (activeMembersCount >= membershipPlan.getMaxMembers()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Membership plan has maximum number of members");
         }
 
         Member member = memberMapper.toEntity(request);
-        membershipPlan.addMember(member);
+        member.setMembershipPlan(membershipPlan);
         Member savedMember = memberRepository.save(member);
         return memberMapper.toResponse(savedMember);
     }

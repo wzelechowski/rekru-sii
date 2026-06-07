@@ -68,4 +68,10 @@ public class MembershipPlanServiceImpl implements MembershipPlanService {
         return membershipPlanRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Membership plan not found"));
     }
+
+    @Override
+    public MembershipPlan getMembershipPlanEntityWithGymInfo(UUID id) {
+        return membershipPlanRepository.getMembershipPlanWithGymById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Membership plan not found"));
+    }
 }

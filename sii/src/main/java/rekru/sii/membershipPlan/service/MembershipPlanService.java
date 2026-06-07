@@ -19,4 +19,6 @@ public interface MembershipPlanService {
     MembershipPlanResponse update(MembershipPlanRequest request, UUID id);
 
     MembershipPlan getMembershipPlanEntity(UUID id);
+
+    MembershipPlan getMembershipPlanEntityWithGymInfo(UUID id);
 }

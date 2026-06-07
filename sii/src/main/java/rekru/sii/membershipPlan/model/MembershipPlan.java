@@ -48,9 +48,4 @@ public class MembershipPlan {
     @OneToMany(mappedBy = "membershipPlan", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @Builder.Default
     private List<Member> members = new ArrayList<>();
-
-    public void addMember(Member member) {
-        members.add(member);
-        member.setMembershipPlan(this);
-    }
 }

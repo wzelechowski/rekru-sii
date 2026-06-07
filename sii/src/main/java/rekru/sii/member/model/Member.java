@@ -30,6 +30,7 @@ public class Member {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
+    @Builder.Default
     private MemberStatus status = MemberStatus.ACTIVE;
 
     @ManyToOne(fetch = FetchType.LAZY)

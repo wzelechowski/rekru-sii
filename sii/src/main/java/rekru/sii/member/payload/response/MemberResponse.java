@@ -10,6 +10,8 @@ public record MemberResponse(
         String fullName,
         String email,
         LocalDate startDate,
-        MemberStatus status
+        MemberStatus status,
+        String planName,
+        String gymName
 ) {
 }

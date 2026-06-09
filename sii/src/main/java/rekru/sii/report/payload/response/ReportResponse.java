@@ -1,4 +1,4 @@
-package rekru.sii.gym.payload.response;
+package rekru.sii.report.payload.response;
 
 import java.math.BigDecimal;
 

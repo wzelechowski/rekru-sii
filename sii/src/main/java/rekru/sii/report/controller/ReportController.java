@@ -1,11 +1,11 @@
-package rekru.sii.gym.controller;
+package rekru.sii.report.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import rekru.sii.gym.payload.response.ReportResponse;
-import rekru.sii.gym.service.ReportService;
+import rekru.sii.report.payload.response.ReportResponse;
+import rekru.sii.report.service.ReportService;
 
 import java.util.List;
 

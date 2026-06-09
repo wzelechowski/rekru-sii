@@ -1,6 +1,6 @@
-package rekru.sii.gym.service;
+package rekru.sii.report.service;
 
-import rekru.sii.gym.payload.response.ReportResponse;
+import rekru.sii.report.payload.response.ReportResponse;
 
 import java.util.List;
 

@@ -51,7 +51,7 @@ public class MembershipPlanServiceImpl implements MembershipPlanService {
     public MembershipPlanResponse save(UUID gymId, MembershipPlanRequest request) {
         MembershipPlan membershipPlan = membershipPlanMapper.toEntity(request);
         Gym gym = gymService.getGymEntity(gymId);
-        gym.addMembershipPlan(membershipPlan);
+        membershipPlan.setGym(gym);
         MembershipPlan savedMembershipPlan = membershipPlanRepository.save(membershipPlan);
         return membershipPlanMapper.toResponse(savedMembershipPlan);
     }

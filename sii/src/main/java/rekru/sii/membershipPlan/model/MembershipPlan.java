@@ -3,11 +3,8 @@ package rekru.sii.membershipPlan.model;
 import jakarta.persistence.*;
 import lombok.*;
 import rekru.sii.gym.model.Gym;
-import rekru.sii.member.model.Member;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -44,8 +41,4 @@ public class MembershipPlan {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "gym_id", nullable = false)
     private Gym gym;
-
-    @OneToMany(mappedBy = "membershipPlan", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @Builder.Default
-    private List<Member> members = new ArrayList<>();
 }

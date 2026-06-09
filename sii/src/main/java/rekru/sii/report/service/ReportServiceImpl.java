@@ -1,10 +1,10 @@
-package rekru.sii.gym.service;
+package rekru.sii.report.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import rekru.sii.gym.payload.response.ReportResponse;
-import rekru.sii.gym.repository.GymRepository;
+import rekru.sii.report.payload.response.ReportResponse;
+import rekru.sii.report.repository.ReportRepository;
 
 import java.util.List;
 
@@ -12,10 +12,10 @@ import java.util.List;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class ReportServiceImpl implements ReportService {
-    private final GymRepository gymRepository;
+    private final ReportRepository reportRepository;
 
     @Override
     public List<ReportResponse> getReport() {
-        return gymRepository.getReport();
+        return reportRepository.getReport();
     }
 }

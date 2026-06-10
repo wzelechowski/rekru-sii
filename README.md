@@ -98,3 +98,17 @@ Query:
 ```
 curl -X GET http://localhost:8080/api/reports
 ```
+
+### API Documentation (Swagger UI)
+The application includes interactive API documentation generated automatically via Springdoc OpenAPI. Once the local server is successfully launched, you can explore, test, and view the full schema specifications of all endpoints using the following links:
+```
+Swagger UI Interface: http://localhost:8080/api/swagger-ui/index.html
+```
+```
+OpenAPI Specification (JSON): http://localhost:8080/api/v3/api-docs
+```
+
+
+
+
+

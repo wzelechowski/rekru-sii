@@ -1,13 +1,16 @@
 package rekru.sii.report.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import rekru.sii.member.model.Member;
 import rekru.sii.report.payload.response.ReportResponse;
 
 import java.util.List;
+import java.util.UUID;
 
 @Repository
-public interface ReportRepository {
+public interface ReportRepository extends JpaRepository<Member, UUID> {
     @Query("""
             SELECT new rekru.sii.report.payload.response.ReportResponse(
             g.name,

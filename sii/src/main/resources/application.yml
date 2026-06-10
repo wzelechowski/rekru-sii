@@ -11,7 +11,7 @@ spring:
         format_sql: true
         use_sql_comments: true
   datasource:
-    url: jdbc:h2:file:./data/sii_db
+    url: jdbc:h2:mem:sii_db;DB_CLOSE_DELAY=-1
     driver-class-name: org.h2.Driver
     username: h2
     password: h2

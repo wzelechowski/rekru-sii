@@ -23,8 +23,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
 public class GymControllerIT {
+
     @Autowired
     private MockMvc mockMvc;
+
     @Autowired
     private GymRepository gymRepository;
 
@@ -115,10 +117,8 @@ public class GymControllerIT {
     @Test
     void shouldReturn409WhenNameDuplicatedCreatingGym() throws Exception {
         Gym gym = createGym();
-        gym.setName("g1");
-        gymRepository.save(gym);
         String randomString = UUID.randomUUID().toString();
-        GymRequest request = new GymRequest("g1", randomString, randomString);
+        GymRequest request = new GymRequest(gym.getName(), randomString, randomString);
 
         mockMvc.perform(post("/gyms")
                         .contentType(MediaType.APPLICATION_JSON)
